@@ -1,4 +1,4 @@
-public class IntArrayWorker
+public class  IntArrayWorker
 {
     /** two dimensional matrix */
     private int[][] matrix = null;
@@ -23,12 +23,31 @@ public class IntArrayWorker
         return count;
     }
 
+    public int getLargest() {
+        int largestValue = Integer.MIN_VALUE;
+        for(int[] array: matrix) {
+            for(int temp: array) {
+                if(temp > largestValue) {
+                    largestValue = temp;
+                }
+            }
+        }
+        return largestValue;
+    }
+
+    public int getColTotal(int column) {
+        int totalCount = 0;
+        for(int[] array: matrix) {
+            totalCount += array[column];
+        }
+        return totalCount;
+    }
+
     /**
      * Method to return the total
      * @return the total of the values in the array
      */
-    public int getTotal()
-    {
+    public int getTotal() {
         int total = 0;
         for (int row = 0; row < matrix.length; row++)
         {
